@@ -1,0 +1,78 @@
+2020-04-07 12:41:38,301 [apscheduler.scheduler] [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-04-07 12:41:38,759 [root] [INFO] **************1**************
+2020-04-07 12:41:39,118 [root] [INFO] 写入MongoDB成功
+2020-04-07 12:41:39,247 [root] [INFO] **************2**************
+2020-04-07 12:41:39,303 [root] [INFO] 写入MongoDB成功
+2020-04-07 12:41:39,441 [root] [INFO] **************3**************
+2020-04-07 12:41:39,495 [root] [INFO] 写入MongoDB成功
+2020-04-07 12:41:39,658 [root] [INFO] **************4**************
+2020-04-07 12:41:39,716 [root] [INFO] 写入MongoDB成功
+2020-04-07 12:41:39,850 [root] [INFO] **************5**************
+2020-04-07 12:41:39,905 [root] [INFO] 写入MongoDB成功
+2020-04-07 12:41:40,048 [root] [INFO] **************6**************
+2020-04-07 12:41:40,106 [root] [INFO] 写入MongoDB成功
+2020-04-07 12:41:40,267 [root] [INFO] **************7**************
+2020-04-07 12:41:40,331 [root] [INFO] 写入MongoDB成功
+2020-04-07 12:41:40,364 [apscheduler.scheduler] [INFO] Added job "main" to job store "default"
+2020-04-07 12:41:40,366 [apscheduler.scheduler] [INFO] Scheduler started
+2020-04-07 16:02:26,762 [apscheduler.scheduler] [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-04-07 16:02:27,700 [root] [INFO] **************1**************
+2020-04-07 16:02:27,779 [root] [INFO] **************2**************
+2020-04-07 16:02:27,851 [root] [INFO] **************3**************
+2020-04-07 16:02:27,922 [root] [INFO] **************4**************
+2020-04-07 16:02:27,995 [root] [INFO] **************5**************
+2020-04-07 16:02:28,076 [root] [INFO] **************6**************
+2020-04-07 16:02:28,155 [root] [INFO] **************7**************
+2020-04-07 16:02:28,168 [apscheduler.scheduler] [INFO] Added job "main" to job store "default"
+2020-04-07 16:02:28,168 [apscheduler.scheduler] [INFO] Scheduler started
+2020-04-07 16:10:06,381 [apscheduler.scheduler] [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-04-07 16:10:06,791 [root] [INFO] **************1**************
+2020-04-07 16:10:07,151 [root] [INFO] 写入MongoDB成功
+2020-04-07 16:10:07,282 [root] [INFO] **************2**************
+2020-04-07 16:10:07,335 [root] [INFO] 写入MongoDB成功
+2020-04-07 16:10:07,423 [root] [INFO] **************3**************
+2020-04-07 16:10:07,477 [root] [INFO] 写入MongoDB成功
+2020-04-07 16:10:07,563 [root] [INFO] **************4**************
+2020-04-07 16:10:07,616 [root] [INFO] 写入MongoDB成功
+2020-04-07 16:10:07,706 [root] [INFO] **************5**************
+2020-04-07 16:10:07,760 [root] [INFO] 写入MongoDB成功
+2020-04-07 16:10:07,856 [root] [INFO] **************6**************
+2020-04-07 16:10:07,910 [root] [INFO] 写入MongoDB成功
+2020-04-07 16:10:07,999 [root] [INFO] **************7**************
+2020-04-07 16:10:08,053 [root] [INFO] 写入MongoDB成功
+2020-04-07 16:10:08,061 [apscheduler.scheduler] [INFO] Added job "main" to job store "default"
+2020-04-07 16:10:08,061 [apscheduler.scheduler] [INFO] Scheduler started
+2020-04-07 16:12:01,613 [apscheduler.scheduler] [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-04-07 16:12:01,987 [root] [INFO] **************1**************
+2020-04-07 16:12:02,809 [root] [INFO] 写入MongoDB成功
+2020-04-07 16:12:03,262 [root] [INFO] **************2**************
+2020-04-07 16:12:03,326 [root] [INFO] 写入MongoDB成功
+2020-04-07 16:12:03,412 [root] [INFO] **************3**************
+2020-04-07 16:12:03,464 [root] [INFO] 写入MongoDB成功
+2020-04-07 16:12:03,561 [root] [INFO] **************4**************
+2020-04-07 16:12:03,613 [root] [INFO] 写入MongoDB成功
+2020-04-07 16:12:03,713 [root] [INFO] **************5**************
+2020-04-07 16:12:03,765 [root] [INFO] 写入MongoDB成功
+2020-04-07 16:12:03,864 [root] [INFO] **************6**************
+2020-04-07 16:12:03,918 [root] [INFO] 写入MongoDB成功
+2020-04-07 16:12:04,023 [root] [INFO] **************7**************
+2020-04-07 16:12:04,082 [root] [INFO] 写入MongoDB成功
+2020-04-07 16:12:04,105 [apscheduler.scheduler] [INFO] Added job "main" to job store "default"
+2020-04-07 16:12:04,105 [apscheduler.scheduler] [INFO] Scheduler started
+2020-04-07 16:12:43,114 [apscheduler.scheduler] [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-04-07 16:12:43,446 [root] [INFO] **************1**************
+2020-04-07 16:12:43,855 [root] [INFO] 写入MongoDB成功
+2020-04-07 16:12:44,021 [root] [INFO] **************2**************
+2020-04-07 16:12:44,082 [root] [INFO] 写入MongoDB成功
+2020-04-07 16:12:44,156 [root] [INFO] **************3**************
+2020-04-07 16:12:44,210 [root] [INFO] 写入MongoDB成功
+2020-04-07 16:12:44,283 [root] [INFO] **************4**************
+2020-04-07 16:12:44,340 [root] [INFO] 写入MongoDB成功
+2020-04-07 16:12:44,446 [root] [INFO] **************5**************
+2020-04-07 16:12:44,508 [root] [INFO] 写入MongoDB成功
+2020-04-07 16:12:44,613 [root] [INFO] **************6**************
+2020-04-07 16:12:44,675 [root] [INFO] 写入MongoDB成功
+2020-04-07 16:12:44,776 [root] [INFO] **************7**************
+2020-04-07 16:12:44,839 [root] [INFO] 写入MongoDB成功
+2020-04-07 16:12:44,853 [apscheduler.scheduler] [INFO] Added job "main" to job store "default"
+2020-04-07 16:12:44,854 [apscheduler.scheduler] [INFO] Scheduler started

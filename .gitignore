@@ -1,0 +1,6 @@
+__pycache__
+.env
+.spider
+.conf
+.vscode
+.idea
