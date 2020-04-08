@@ -10,6 +10,8 @@ cffi==1.14.0
 chardet==3.0.4
 cryptography==2.9
 databases==0.2.6
+elasticsearch==7.6.0
+elasticsearch-dsl==7.1.0
 idna==2.9
 kafka-python==2.0.1
 lxml==4.5.0

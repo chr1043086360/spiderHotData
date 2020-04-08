@@ -19,6 +19,7 @@ from Kafka.producer import Kafka_producer
 from utils.log import logger
 from dao.initMysql import create_connection, disconnect
 from dao.saveToMysql import save_to_mysql
+from Redis.producer import Redis_producer
 
 # 抽象类(或接口)，没有必要用abc来做，这样更加灵活
 
@@ -53,47 +54,52 @@ class HotDataSpider(BaseSpider):
         # 热搜榜分类(到Bilibili热搜榜),后面的格式就不一样了
         print("***************正在爬取，详见spider.log***************")
         for num in range(1, 8):
-            self.dict = {}  # 内存中的缓存容器
-            res_data = self._get_info(num)
+            for col in range(1, 3):
+                self.dict = {}  # 内存中的缓存容器
+                res_data = self._get_info(num, col)
 
-            # 写入到MongoDB中(默认MongoDB，数据结构最合适)
-            try:
-                save_to_mongodb(res_data)
-                logger.info("写入MongoDB成功")
-            except Exception:
-                raise "写入MongoDB失败"
+                # 写入到MongoDB中(默认MongoDB，数据结构最合适)
+                # try:
+                #     save_to_mongodb(res_data)
+                #     logger.info("写入MongoDB成功")
+                # except Exception:
+                #     raise "写入MongoDB失败"
 
-            # 写入到MySQL中，可以同步到ES、TiDB、Hive、HBase等
-            # create_connection()  # 开启连接
-            # logger.info("数据库开启连接")
-            # try:
-            #     save_to_mysql(res_data)  # 写入数据库
-            # except Exception:
-            #     raise "写入MySQL失败
-            # disconnect()  # 关闭连接
-            # logger.info("数据库关闭连接")
+                # 写入到MySQL中，可以同步到ES、TiDB、Hive、HBase等
+                # create_connection()  # 开启连接
+                # logger.info("数据库开启连接")
+                # try:
+                #     save_to_mysql(res_data)  # 写入数据库
+                # except Exception:
+                #     raise "写入MySQL失败
+                # disconnect()  # 关闭连接
+                # logger.info("数据库关闭连接")
 
-            # 写到Kafka中，可以对接Spark、Flink对爬取的数据做大数据分析
-            # try:
-            #     Kafka_producer(res_data)
-            # except Exception:
-            #     raise "写入Kafka失败"
+                # 写到Kafka中，可以对接Spark、Flink对爬取的数据做大数据分析
+                # try:
+                #     Kafka_producer(res_data)
+                # except Exception:
+                #     raise "写入Kafka失败"
 
-            # 写到NSQ消息队列中，golang可以做消费端
-            # try:
-            #     NSQ(res_data).send()
-            # except Exception:
-            #     raise "写入NSQ失败"
+                # 写到NSQ消息队列中，golang可以做消费端
+                # try:
+                #     NSQ(res_data).send()
+                # except Exception:
+                #     raise "写入NSQ失败"
 
-            # 写到RabbiMQ消息队列中
-            # try:
-            #     RabbitMQ_producer(res_data)
-            # except Exception:
-            #     raise "写入RabbitMQ失败"
+                # 写到RabbiMQ消息队列中
+                # try:
+                #     RabbitMQ_producer(res_data)
+                # except Exception:
+                #     raise "写入RabbitMQ失败"
+
+                # 写入Redis，实现一个需求(这些平台的热搜中出现xx关键词，通过短信通知我)
+                # 用Redis做一个缓存，数据的过期时间为1天，每天更新数据(5分钟在线爬一次写如redis)
+                Redis_producer(res_data)
 
     # 获取各大平台的热搜
 
-    def _get_info(self, num: int):
+    def _get_info(self, num: int, col:int):
         '''
         param num: 爬取的分类
         '''
@@ -101,7 +107,7 @@ class HotDataSpider(BaseSpider):
 
         # 头部
         head = html.xpath(
-            f"/html/body/div/div[1]/div[3]/div/div[2]/div[1]/div[{num}]/div[1]/h4/text()")
+            f"/html/body/div/div[1]/div[3]/div/div[2]/div[{col}]/div[{num}]/div[1]/h4/text()")
 
         logger.info("**************%s**************" % num)
         self.dict["time"] = datetime.now()
@@ -110,21 +116,26 @@ class HotDataSpider(BaseSpider):
         # 定义dict容器中的数据结构
         self.dict["hot"] = []
         self.dict["search_num"] = []
+        self.dict["hot_href"] = []
 
         # 循环1～10榜单
         for i in range(1, 11):
-
+    
             # 热点内容
             hot_info = html.xpath(
-                f"/html/body/div/div[1]/div[3]/div/div[2]/div[1]/div[{num}]/table/tbody/tr[{i}]/td[2]/a/text()")
+                f"/html/body/div/div[1]/div[3]/div/div[2]/div[{col}]/div[{num}]/table/tbody/tr[{i}]/td[2]/a/text()")
+            href = html.xpath(
+                f"/html/body/div/div[1]/div[3]/div/div[2]/div[{col}]/div[{num}]/table/tbody/tr[{i}]/td[2]/a/@href")
             self.dict["hot"].append(hot_info[0])
+            self.dict["hot_href"].append(href[0])
 
             # 搜索指数
             search_num = html.xpath(
-                f"/html/body/div/div[1]/div[3]/div/div[2]/div[1]/div[{num}]/table/tbody/tr[{i}]/td[3]/span/text()")
+                f"/html/body/div/div[1]/div[3]/div/div[2]/div[{col}]/div[{num}]/table/tbody/tr[{i}]/td[3]/span/text()")
             self.dict["search_num"].append(search_num[0])
 
-        print(self.dict)  # 上线注释掉
+        
+        # print(self.dict)  # 上线注释掉
         return self.dict
         #####################################################################################################################
         #  dict的数据结构:
