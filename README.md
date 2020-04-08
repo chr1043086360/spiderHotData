@@ -430,3 +430,16 @@ alembic upgrade head
 ```
 
 - 更多功能请查看官网
+---
+#### Docker部署ES
+- 添加GPG: ```curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -```
+- sudo apt upgrade
+- sudo apt  install docker.io
+- systemctl start docker
+- systemctl status docker
+- sudo apt autoremove
+- sudo docker ps
+- sudo docker pull elasticsearch:7.4.1
+- sudo docker network create chr
+- sudo docker run --name elasticsearch --net chr -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -d elasticsearch:7.4.1
+- netstat -anpt
