@@ -8,7 +8,7 @@ autopep8==1.5.1
 certifi==2020.4.5.1
 cffi==1.14.0
 chardet==3.0.4
-cryptography==2.9
+cryptography==3.2
 databases==0.2.6
 elasticsearch==7.6.0
 elasticsearch-dsl==7.1.0
