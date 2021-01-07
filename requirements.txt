@@ -14,7 +14,7 @@ elasticsearch==7.6.0
 elasticsearch-dsl==7.1.0
 idna==2.9
 kafka-python==2.0.1
-lxml==4.5.0
+lxml==4.6.2
 Mako==1.1.2
 MarkupSafe==1.1.1
 multidict==4.7.5
